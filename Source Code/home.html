@@ -1,0 +1,945 @@
+<!DOCTYPE html> <html lang="en">
+<head>
+        <!--external css for product-filter-->
+        <link rel="stylesheet" href="css/product-filter.css">
+	<!--Logo trên tab-->
+	<link rel="SHORTCUT ICON" href="img/Logo.png">
+	<!--Bootstrap 4 CDN-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-1.4.4.min.js"> </script>
+        <!--Bootstrap 3 CDN-->
+	<!--Font-family CDN-->
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<!--Style from css-->
+        <link rel="stylesheet" href="phuStyle.css">
+        <link rel="stylesheet" href="tienStyle.css">
+        <!--Script from js-->
+        <script src="phuScript.js"></script>
+        <script src="tienScript.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--Font Answer 5 icon CDN-->
+	<script src="https://use.fontawesome.com/2e8d05f34f.js"></script>
+	<title>Smart Store</title>
+	<script src="effect.js"></script>
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>  
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"> </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        
+
+<!--CSS for Click On Image To Zoom------------------------------------------------------------------------------------------------------->
+<style>
+        #myImg1 #myImg2 #myImg3 #myImg4 #myImg5 #myImg6 #myImg7 #myImg8 #myImg9 #myImg10 #myImg11 #myImg12{
+          border-radius: 5px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+        
+        /* The Modal (background) */
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          padding-top: 80px; /* Location of the box */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: black; /* Black w/ opacity */
+        }
+        
+        /* Modal Content (image) */
+        .modal-content {
+          margin: auto;
+          /* display: block; */
+          width: 80%;
+          max-width: 800px;
+        }
+        
+        /* Caption of Modal Image */
+        #caption {
+          margin: auto;
+          /* display: block; */
+          /* width: 80%;
+          max-width: 700px; */
+          text-align: center;
+          color: #ccc;
+          /* padding: 10px 0; */ 
+          /* height: 150px; */
+        }
+        
+        /* Add Animation */
+        .modal-content, #caption {  
+          -webkit-animation-name: zoom;
+          -webkit-animation-duration: 0.6s;
+          animation-name: zoom;
+          animation-duration: 0.6s;
+        }
+        
+        @-webkit-keyframes zoom {
+          from {-webkit-transform:scale(0)} 
+          to {-webkit-transform:scale(1)}
+        }
+        
+        @keyframes zoom {
+          from {transform:scale(0)} 
+          to {transform:scale(1)}
+        }
+        
+        /* The Close Button */
+        /* .close {
+          position: absolute;
+          top: 15px;
+          right: 35px;
+          color: #f1f1f1;
+          font-size: 40px;
+          font-weight: bold;
+          transition: 0.3s;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: #bbb;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        
+        /* 100% Image Width on Smaller Screens */
+        @media only screen and (max-width: 700px){
+          .modal-content {
+            width: 100%;
+          }
+        } */
+</style>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--Hover image to slightly zoom---------------------------------------------------------------------------------------------------------->
+<style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .zoom {
+          /* padding: 50px; */
+          /* background-color: green; */
+          transition: transform .2s;
+          width: 100%;
+          /* height: 200px; */
+          margin: 0 auto;
+        }
+        
+        .zoom:hover {
+          -ms-transform: scale(1.5); /* IE 9 */
+          -webkit-transform: scale(1.5); /* Safari 3-8 */
+          transform: scale(1.1); 
+        }
+</style>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--Hover-------------------------------------------------------------------------------------------------------------------------------->
+<style>
+#productfilterbutton:hover {background-color: brown;
+                color: chartreuse;}
+#downloaddetail:hover {text-decoration: underline; border: blanchedalmond 1em; background-color: gray;}
+</style>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+</head>
+<body class="bg-dark">
+
+
+
+
+
+<!--Navbar------------------------------------------------------------------------------------------------------------------------------->
+<nav class="navbar navbar-expand-sm bg-dark sticky-top">
+        <ul class="navbar-nav">
+                <li class="nav-item">
+                        <a href="#"> <img class="nav-link title" src="img/Logo.png"> </a>
+                </li>
+                <li class="nav-item mr-auto">
+                        <a class="nav-link title" id="title" href="#">Smart Store</a>
+                </li>
+                <li class="nav-item" id="liHome">
+                        <a class="nav-link nav-after" href="#asd">Home</a>
+                </li>
+                <li class="nav-item" id="liProducts">
+                        <a class="nav-link  nav-after" href="#asd">Products</a>
+                </li>
+                <li class="nav-item" id="liLocations">
+                        <a class="nav-link  nav-after" href="#asd">Locations</a>
+                </li>
+                <li class="nav-item" id="liAboutUs">
+                        <a class="nav-link  nav-after" href="#asd">About Us</a>
+                </li>
+                <li class="nav-item" id="liContact">
+                        <a class="nav-link  nav-after" href="#asd">Contact Us</a>
+                </li>
+                <li class="nav-item" id="liFeedbacks">
+                        <a class="nav-link  nav-after" href="#asd">Feedbacks</a>
+                </li>
+        </ul>
+</nav>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--Carousel----------------------------------------------------------------------------------------------------------------------------->
+<div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active" style="border-radius: 20%; width: 20px; height: 5px;"></li>
+          <li data-target="#myCarousel" data-slide-to="1" style="border-radius: 20%; width: 20px; height: 5px;"></li>
+          <li data-target="#myCarousel" data-slide-to="2" style="border-radius: 20%; width: 20px; height: 5px;"></li>
+          <li data-target="#myCarousel" data-slide-to="3" style="border-radius: 20%; width: 20px; height: 5px;"></li>
+          <li data-target="#myCarousel" data-slide-to="4" style="border-radius: 20%; width: 20px; height: 5px;"></li>
+        </ul>
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+                <img class="d-block w-100" src="img/carousel 1.jpg" alt="Combo 1">
+                <div class="carousel-caption">
+                        <h1>SMART</h1>
+                </div>      
+          </div>
+          <div class="carousel-item">
+                <img class="d-block w-100" src="img/carousel 2.jpg" alt="Combo 2">
+                <div class="carousel-caption">
+                        <h1>ELEGANT</h1>
+                </div>    
+          </div>
+          <div class="carousel-item">
+                <img class="d-block w-100" src="img/carousel 3.jpg" alt="Combo 3">
+                <div class="carousel-caption">
+                        <h1>MODERN</h1>
+                </div>    
+          </div>
+          <div class="carousel-item">
+                <img class="d-block w-100" src="img/carousel 4.jpg" alt="Combo 4">
+                <div class="carousel-caption">
+                        <h1>SPACE-SAVING</h1>
+                </div>    
+          </div>
+          <div class="carousel-item">
+                <img class="d-block w-100" src="img/carousel 5.jpg" alt="Combo 5">
+                <div class="carousel-caption">
+                        <h1>CONVENIENT</h1>
+                </div>    
+          </div>
+        </div>
+  
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--Introduction------------------------------------------------------------------------------------------------------------------------->
+<div id="introduction" class="container bg-dark text-white">
+        <div class="d-flex justify-content-center">
+                <img src="img/logo.png">
+                <h2>Smart Store</h2>
+        </div>
+        <p>Incorporating storage into a home is very much necessary. Staying organized is not easy, and allowing a buyer to understand the value of efficient storage solutions can make the difference between a haphazard home and an orderly masterpiece.</p>
+        <p><u>Smartstore</u> is a company selling wardrobe and other home storage products specially space savers. We sell variety of products suiting every requirement and various sizes and qualities.</p>
+</div>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--Products----------------------------------------------------------------------------------------------------------------------------->
+<section id="Products" style="background-color: black; color: seashell; padding-top: 40px; padding-bottom: 60px; border-style: solid;">
+        <div class="text-center"> <h2> Products </h2> </div>
+        <div class="text-center"> <a href="compage-page.html"> <h4 class="zoom" style="color: springgreen;"> Click here to move to the Product Comparison page. </h4> </a> </div>
+        
+        <div class="text-center" style="padding-top: 40px;"> <h4> Sorted by Brands </h4> </div>
+	<div id="myBtnContainer" class="text-center">
+	<button id="productfilterbutton" class="btn active" onclick="filterSelection('all')"> Show all </button>
+	<button id="productfilterbutton" class="btn active" onclick="filterSelection('Brand_Bestar')"> Bestar </button> 
+	<button id="productfilterbutton" class="btn active" onclick="filterSelection('Brand_MASHstudios')"> MASHstudios </button> 
+        <button id="productfilterbutton" class="btn active" onclick="filterSelection('Brand_Vento')"> Vento </button> 
+        </div>
+        
+        <div class="text-center" style="padding-top: 40px;"> <h4> Sorted by Type of Product </h4> </div>
+        <div id="myBtnContainer" class="text-center">
+        <button id="productfilterbutton" class="btn active" onclick="filterSelection('Type_Bed')"> Bed </button>
+        <button id="productfilterbutton" class="btn active" onclick="filterSelection('Type_Table')"> Table / Chairs </button>
+        </div>
+	
+	
+	<div class="container-fluid">
+        <div style="padding-top: 40px;" class="row">
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_Bestar Type_Bed" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg1" style="cursor: pointer;" width="90%" src="img\Brand_Bestar_product1.jpg">
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                        <!-- <span class="close">Click here to return</span> -->
+                                </div>
+                                <h4 style="padding-top: 40px;"> 3 Drawers Bed Kit by Bestar <h4>
+                                <h5 style="color: bisque;"> Price: $2,499.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\Brestar1.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_Bestar Type_Bed" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg2" style="cursor: pointer;" width="90%" src="img\Brand_Bestar_product2.jpg">
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Full Wall Bed Kit by Bestar <h4>
+                                <h5 style="color: bisque;"> Price: $1,200.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\Brestar2.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_Bestar Type_Bed" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg3" style="cursor: pointer;" width="90%" src="img\Brand_Bestar_product3.jpg"> 
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Full Wall Bed Kit with Door by Bestar <h4>
+                                <h5 style="color: bisque;"> Price: $1,300.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\Brestar3.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_Bestar Type_Bed" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg4" style="cursor: pointer;" width="90%" src="img\Brand_Bestar_product4.jpg"> 
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Folding Queen Wall Bed by Bestar <h4>
+                                <h5 style="color: bisque;"> Price: $1,100.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\Brestar4.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_MASHstudios Type_Bed" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg5" style="cursor: pointer;" width="90%" src="img\Brand_MASHstudios_product1.jpg"> 
+                                <div id="myModal2" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Storage Platform Bed by MASHstudios <h4>
+                                <h5 style="color: bisque;"> Price: $999.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\MASHstudios1.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_MASHstudios Type_Bed" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg6" style="cursor: pointer;" width="90%" src="img\Brand_MASHstudios_product2.jpg"> 
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Board Storage Bed by MASHstudios <h4>
+                                <h5 style="color: bisque;"> Price: $1,000.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\MASHstudios2.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_MASHstudios Type_Bed" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg7" style="cursor: pointer;" width="90%" src="img\Brand_MASHstudios_product3.jpg">
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Bed With Lid by MASHstudios <h4>
+                                <h5 style="color: bisque;"> Price: $1,100.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\MASHstudios3.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_MASHstudios Type_Bed" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg8" style="cursor: pointer;" width="90%" src="img\Brand_MASHstudios_product4.jpg">
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Bed With Side-Lid by MASHstudios <h4>
+                                <h5 style="color: bisque;"> Price: $1,050.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\MASHstudios4.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+        
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_Vento Type_Table" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg9" style="cursor: pointer;" width="90%" src="img\Brand_Vento_product1.jpg">
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Dark Cone Table And Chairs by Vento <h4>
+                                <h5 style="color: bisque;"> Price: $499.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\Vento1.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_Vento Type_Table" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg10" style="cursor: pointer;" width="90%" src="img\Brand_Vento_product2.jpg">
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Hybrid Table And Chairs by Vento <h4>
+                                <h5 style="color: bisque;"> Price: $520.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\Vento2.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_Vento Type_Table" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg11" style="cursor: pointer;" width="90%" src="img\Brand_Vento_product3.jpg">
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Outdoor Table And Chairs by Vento <h4>
+                                <h5 style="color: bisque;"> Price: $600.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\Vento3.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+
+                <div class="col-sm-3">
+                        <div class="filterDiv Brand_Vento Type_Table" style="padding-bottom: 60px;">
+                                <img class="zoom" id="myImg12" style="cursor: pointer;" width="90%" src="img\Brand_Vento_product4.jpg">
+                                <div id="myModal" class="modal">
+                                        <img class="modal-content" id="img01">
+                                        <div id="caption" style="font-size: 2em; line-height: 190%;"></div>
+                                </div>
+                                <h4 style="padding-top: 40px;"> Wooden Table And Chairs by Vento <h4>
+                                <h5 style="color: bisque;"> Price: $500.00 </h5>
+                                <a style="text-decoration: none; color: navajowhite;" href="product-detail\Vento4.docx"> <h5 id="downloaddetail" class="zoom"> Click here to download detail </h5> </a>
+                        </div>
+                </div>
+        </div>
+        </div>
+</section>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+	
+        
+
+
+
+<!--Locations---------------------------------------------------------------------------------------------------------------------------->
+<section id="Locations" class="container-fluid">
+        <h1>Locations</h1>
+        <div class="row">
+            <div class="col loHover">
+                <h3 class="text-center">Ho Chi Minh City</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3879131023355!2d106.67224751526027!3d10.781572662045717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed7ba0ff8e3%3A0xc8a6484648646d86!2zVHLhuqFpIEjDsm0gQ8O0bmcgVGjhu40gUGjDumM!5e0!3m2!1svi!2s!4v1594560331136!5m2!1svi!2s" width="400" height="400" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <br><p><i>461 bis Cach Mang Thang 8 street, district 3, Ho Chi Minh City, Vietnam</i></p>
+            </div>
+            <div class="col loHover">
+                <h3 class="text-center">Ha Noi</h3>
+                <iframe class="hoverShine" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.935829556534!2d106.66733151526037!3d10.816222861414383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529193a508a9d%3A0xb408cd197fbf9a49!2zUXXDoW4gVGjhu4t0IENow7MgR2lhIFRydXnhu4FuIDYxIEjDoG5nIEzGsOG7o2MgSMOgIE7hu5lp!5e0!3m2!1svi!2s!4v1594560600500!5m2!1svi!2s" width="400" height="400" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <br><p><i> 61 Bach Dang street, Tan Binh district, Ha Noi, Vietnam</i></p>
+            </div>
+            <div class="col loHover">
+                <h3 class="text-center">Da Nang</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15337.18593196941!2d108.22508528527231!3d16.05009739362332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142175d88fc596b%3A0xa7ef89664df213e9!2sClub%2099!5e0!3m2!1svi!2s!4v1594560670492!5m2!1svi!2s" width="400" height="400" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <br><p><i>27Q2+X9 Khue My street, Ngu Hanh Son district, Da Nang, Việt Nam</i></p>
+            </div>
+        </div>
+    </section>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--About Us----------------------------------------------------------------------------------------------------------------------------->
+<section id="About_Us" class="container">
+        <h1>About Us</h1>
+        <p>Smart Store was esatblished in 1994, and has become a very famous company selling smart and space-saving furnitures till this day.</p>
+        <fieldset class="px-3">
+            <legend>Founders</legend>
+            <div class="parentFlex">
+                <div class="flex-child">
+                    <h5 class="bg-primary">CEO</h5>
+                    <img src="img\leadership 1.jpg">
+                    <div class="doFade">
+                        <h5>NGUYEN HOANG PHU</h5>
+                        <a href="mailto:phugidokonho@gmail.com">
+                            <button class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Mails</button>
+                        </a>
+                        <p><i>phugidokonho@gmail.com</i></p>
+                    </div>
+                </div>
+                <div class="flex-child">
+                    <h5 class="bg-success">Vice President</h5>
+                    <span class="shadowLight">
+                        <img src="img\leadership 2.jpg">
+                    </span>
+                    <div class="doFade">
+                        <h5>TRUONG HO TIEN</h5>
+                        <a href="mailto:truonghotien93@gmail.com">
+                            <button class="btn btn-success"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Mails</button>
+                        </a>
+                        <p><i>truonghotien93@gmail.com</i></p>
+                    </div>
+                </div>
+                <div class="flex-child">
+                    <h5 class="bg-warning">Marketing Executive</h5>
+                    <img src="img\leadership 3.jpg">
+                    <div class="doFade">
+                        <h5>NGUYEN KHANH KHOI NGUYEN</h5>
+                        <a href="mailto:khoinguyen1951994@gmail.com">
+                            <button class="btn btn-warning"><i class="fa fa-paper-plane" aria-hidden="true"></i> Send Mails</button>
+                        </a>
+                        <p><i>khoinguyen1951994@gmail.com</i></p>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </section>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+        
+
+
+        
+
+<!--Contact Us--------------------------------------------------------------------------------------------------------------------------->
+<section id="Contact" style="background-color: black; color: seashell; padding-top: 40px; padding-bottom: 60px; border-style: solid;">
+<div class="container-fluid">
+                
+<div class="text-center">
+<h1> Please contact us for more information </h1>
+</div>
+
+<div class="row" style="padding-bottom: 40px;">
+<div class="col-sm-4" style="padding-top: 40px;">
+<div class="text-center">
+                <a href="https://www.google.com/maps/place/590+C%C3%A1ch+M%E1%BA%A1ng+Th%C3%A1ng+8,+Ph%C6%B0%E1%BB%9Dng+11,+Qu%E1%BA%ADn+3,+H%E1%BB%93+Ch%C3%AD+Minh/@10.7863462,106.6641388,17z/data=!3m1!4b1!4m5!3m4!1s0x31752ed23ca5d8db:0x24d414f45e5a523!8m2!3d10.7863462!4d106.6663275">
+                <span class="glyphicon glyphicon-map-marker" style="font-size: 30px; position: relative;"></span></a>
+</div>
+<div class="text-center">
+                <h2>Headquarters Address</h2>
+                <div class="zoom">
+                <h4> 590 Cach Mang Thang 8 street, district 3, Ho Chi Minh City </h4>
+                <a href="https://www.google.com/maps/place/590+C%C3%A1ch+M%E1%BA%A1ng+Th%C3%A1ng+8,+Ph%C6%B0%E1%BB%9Dng+11,+Qu%E1%BA%ADn+3,+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.7863462,106.6641388,17z/data=!3m1!4b1!4m5!3m4!1s0x31752ed23ca5d8db:0x24d414f45e5a523!8m2!3d10.7863462!4d106.6663275">
+                <h4> Click to access Google Maps </h4>
+                </div>
+                </a>
+</div>
+</div>
+
+<div class="col-sm-4" style="padding-top: 40px;">
+<div class="text-center">
+                <a class="zoom" href="tel:0782710770">
+                <span class="glyphicon glyphicon-phone" style="font-size: 30px; position: relative;"></span>
+                </a>
+</div>
+<div class="text-center">
+                <h2> Phone Numbers </h2>
+                <h4 class="zoom"> Mr. Nguyen Nguyen: <br> 
+                <a href="tel:0782710770"> 078 27 10 770 </a> </h4>
+</div>
+</div>
+
+<div class="col-sm-4" style="padding-top: 40px;">
+<div class="text-center">
+                <a href="mailto:khoinguyen1951994@gmail.com">
+                <span  class="glyphicon glyphicon-envelope" style="font-size: 30px; position: relative;"></span>
+                </a>
+</div>
+<div class="text-center">
+                <h2> Email </h2>
+                <h4 class="zoom"> Mr. Nguyen Nguyen: <a href="mailto:khoinguyen1951994@gmail.com"> khoinguyen1951994@gmail.com </a> </h4>
+</div>
+</div>
+</div>
+
+<div class="row">
+                
+<div class="col-sm-6 col-lg-6 ">
+<div style="padding-left:8em">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3257176556144!2d106.66413881443752!3d10.78634619231478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed23ca5d8db%3A0x24d414f45e5a523!2zNTkwIEPDoWNoIE3huqFuZyBUaMOhbmcgOCwgUGjGsOG7nW5nIDExLCBRdeG6rW4gMywgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1544844710135"
+                width="1200" height="600"></iframe>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--Feedbacks---------------------------------------------------------------------------------------------------------------------------->
+<section id="Feedbacks" class="container">
+        <h1>Your feedbacks are necessary for our improvements.</h1>
+        <form class="need-validated" onsubmit="sendFeedback()">
+            <div class="form-group row">
+                <div class="col-xl-3">
+                    <label for="name">Your Name:</label>
+                </div>
+                <div class="col-xl-9">
+                    <input type="text" class="form-control" data-add="validate" id="name" name="name" placeholder="Enter your name">
+                    <div class="valid-feedback"><i class="fa fa-check" aria-hidden="true"></i></div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xl-3">
+                    <label for="email">Your Email</label>
+                </div>
+                <div class="col-xl-9">
+                    <input type="text" class="form-control" data-add="validate" id="email" name="email" placeholder="Enter your email">
+                    <div class="valid-feedback"><i class="fa fa-check" aria-hidden="true"></i></div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xl-3">
+                    <label for="phone">Your Phone</label>
+                </div>
+                <div class="col-xl-9">
+                    <input type="text" class="form-control" data-add="validate" id="phone" name="phone" placeholder="Enter your phone-number">
+                    <div class="valid-feedback"><i class="fa fa-check" aria-hidden="true"></i></div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="mb-0"><label>What thing make you feel unsatisfied:</label></p>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="staffs">Staffs
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="prices">Prices
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="locations">Locations
+                    </label>
+                </div>
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="services">Services
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="3" placeholder="Enter your description"></textarea>
+            </div>
+            <div class="form-group" id="cc">
+                <button type="submit" class="btn btn-success">Send</button>
+            </div>
+        </form>
+    </section>
+    <div class="modalChe">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Smart Store</h4>
+                </div>
+                <div class="modal-body text-center">
+                Thank you for your feedback...
+                </div>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--Footer------------------------------------------------------------------------------------------------------------------------------->
+<section style="background-color: black; color: seashell; padding-top: 40px; padding-bottom: 60px; border-style: solid;">
+        <footer>
+
+        <div class="container-fluid">
+        <div class="row">
+                        <div class="col-sm-4">
+                        <ul>
+                                <li> <a href="#"> <h5> Home </h5> </a> </li>
+                                <li> <a href="#Products"> <h5> Products </h5> </a> </li>
+                                <li> <a href="#Locations"> <h5> Locations </h5> </a> </li>
+                                <li> <a href="#About_Us"> <h5> About Us </h5> </a> </li>
+                                <li> <a href="#Contact"> <h5> Contact Us </h5> </a> </li>
+                                <li> <a href="#Feedbacks"> <h5> Feedbacks </h5> </a> </li>     
+                        </ul>
+                        </div>
+
+                        <div class="col-sm-4">
+                                <a href="https://www.facebook.com/Smart-Store-Project-112626383850777/?modal=admin_todo_tour"> <img src="img/facebook.png" width="50%"> </a>
+                        </div>
+        </div>
+        </div>
+
+        </footer>
+</section>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--Javascript for product-filter-------------------------------------------------------------------------------------------------------->
+<script>
+        
+filterSelection("all")
+
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--Javascript for feedback validation--------------------------------------------------------------------------------------------------->
+<script>
+        function check() {
+                var sUsername = frmReg.txtUsername.value;
+                var reUsername = /^\w+$/;
+                if (reUsername.test(sUsername)==false){
+                        alert("Username cannot be blank !");
+                        frmReg.txtUsername.focus();
+                        return false;
+                }
+                var sEmail = frmReg.txtEmail.value;
+                var reEmail = /^\w+[@]\w+[.]\w{3}([.]\w{2})?$/;
+                if (!reEmail.test(sEmail)){
+                        alert("Email's format is invalid !");
+                        frmReg.txtEmail.focus();
+                        return false;
+                }
+        }
+        function welcome(){
+                alert("Thank you very much!" + " Your feedbacks will help improving our service!")
+        }
+</script>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+<!--Javascript for Click On To Zoom Image------------------------------------------------------------------------------------------------>
+<script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById("myImg1");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src
+                captionText.innerHTML = "Full Wall Bed Kit with 3 Drawers <br> Size = 2.1 m long ; 1.9 m wide; 1.9 high <br> Weight = 130 kg <br> Price = $2,499.00";
+        }
+        var img = document.getElementById("myImg2");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Full Wall Bed Kit <br> Size = 2.2 m long ; 1.9 m wide; 1.9 high <br> Weight = 136 kg <br> Price = $1,200.00";
+        }
+        var img = document.getElementById("myImg3");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Full Wall Bed Kit with Door <br> Size = 2.1 m long ; 1.8 m wide; 1.9 high <br> Weight = 134 kg <br> Price = $1,300.00";
+        }
+        var img = document.getElementById("myImg4");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Folding Queen Wall Bed <br> Size = 2.1 m long ; 1.8 m wide; 1.9 high <br> Weight = 132 kg <br> Price = $1,100.00";
+        }
+        var img = document.getElementById("myImg5");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Storage Platform Bed <br> Size = 2.0 m long ; 1.8 m wide; 1.9 high <br> Weight = 130 kg <br> Price = $999.00";
+        }
+        var img = document.getElementById("myImg6");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Headboard Storage Platform Bed <br> Size = 2.2 m long ; 2.0 m wide; 1.9 high <br> Weight = 131 kg <br> Price = $1,000.00";
+        }
+        var img = document.getElementById("myImg7");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Bed With Lid <br> Size = 2.1 m long ; 1.8 m wide; 1.9 high <br> Weight = 134 kg <br> Price = $1,100.00";
+        }
+        var img = document.getElementById("myImg8");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Bed With Side-Lid <br> Size = 1.9 m long ; 1.9 m wide; 1.9 high <br> Weight = 135 kg <br> Price = $1,050.00";
+        }
+        var img = document.getElementById("myImg9");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Dark Cone Table And Chairs <br> Size = 1.5 m long ; 0.7 m wide; 1.0 m high <br> Weight = 135 kg <br> Price = $1,050.00";
+        }
+        var img = document.getElementById("myImg10");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Wooden Hybrid Table And Chairs <br> Size = 1.4 m long ; 0.8 m wide; 1.2 m high <br> Weight = 135 kg <br> Price = $1,050.00";
+        }
+        var img = document.getElementById("myImg11");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Wall-hanged Outdoor Table And Chairs <br> Size = 1.5 m long ; 1.2 m wide; 1.3 m high <br> Weight = 135 kg <br> Price = $1,050.00";
+        }
+        var img = document.getElementById("myImg12");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = "Wooden Table And Chairs <br> Size = 1.4 m long ; 0.7 m wide; 1.4 m high <br> Weight = 135 kg <br> Price = $1,050.00";
+        }
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        /* // When the user clicks on <span> (x), close the modal
+        span.onclick = function() { 
+          modal.style.display = "none";
+        } */
+
+        window.onclick = function(event) {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                }
+        }
+        </script>
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+</body>
+</html>
