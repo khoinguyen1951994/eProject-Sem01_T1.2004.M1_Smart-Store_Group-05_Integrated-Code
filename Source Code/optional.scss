@@ -1,0 +1,52 @@
+.navbar{
+    margin: 0;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    height: 82px;
+    .navbar-nav{
+        width: 100%;
+        align-items: center;
+        li.nav-item a{
+            color: white;
+            font-size: 20px;
+            vertical-align: middle;
+        }
+        li.nav-item a:hover{
+            background-color: black;
+        }
+        li.nav-item a#title{
+            font-size: 30px;
+            font-family: 'Lato', sans-serif;
+        }
+        li.nav-item img{
+            max-height: 50px;
+        }
+    }
+}
+// Class will add when page scroll <script>
+.navChange{
+    height: 150px;
+}
+.carousel{
+    a.carousel-control-prev:hover{
+        transition: 0.8s;
+        background-image: linear-gradient(to left,rgba(black,0) , black);
+    }
+    a.carousel-control-next:hover{
+        transition: 0.8s;
+        background-image: linear-gradient(to right,rgba(black,0) , black);
+    }
+    .carousel-inner{
+        img{
+            height: calc(100vh - 82px);
+        }
+    }
+}
+#introduction{
+    h2{
+        text-align: center;
+        padding: 40px 0px 20px;
+    }
+}
