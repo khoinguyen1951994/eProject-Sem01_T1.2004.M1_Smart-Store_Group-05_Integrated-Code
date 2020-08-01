@@ -1,0 +1,22 @@
+
+.filterDiv {
+	/* float: left; */
+	/* color: #ffffff; */
+	line-height: 100px;
+	text-align: center;
+	display: none; /* Hidden by default */
+}
+
+        
+/* The "show" class is added to the filtered elements */
+.show {
+	display: block;
+}
+
+
+
+/* Add a dark background to the active button */
+.btn.active {
+	background-color: gray; /* màu nền của nút bấm */
+	color: white; /* màu chữ của nút bấm */
+}
