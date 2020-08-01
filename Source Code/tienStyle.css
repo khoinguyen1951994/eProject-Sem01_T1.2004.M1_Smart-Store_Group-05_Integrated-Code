@@ -1,0 +1,196 @@
+#About_Us {
+  padding-left: 0;
+  padding-right: 0;
+  color: white;
+}
+
+#About_Us h1 {
+  margin-top: 40px;
+}
+
+#About_Us h1, #About_Us p {
+  text-align: center;
+}
+
+#About_Us fieldset {
+  border: 1px solid white;
+  border-radius: 10px;
+  border-bottom: none;
+  margin-bottom: 70px;
+}
+
+#About_Us fieldset legend {
+  font-weight: bolder;
+  font-style: italic;
+  width: auto;
+  padding: 0 20px;
+  margin-left: 30px;
+}
+
+#About_Us fieldset div.parentFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#About_Us fieldset div.flex-child {
+  text-align: center;
+  padding: 0;
+  font-size: 20px;
+  width: 300px;
+  margin: 30px;
+}
+
+#About_Us fieldset div.flex-child h5 {
+  margin: 0;
+  min-height: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#About_Us fieldset div.flex-child img {
+  width: 100%;
+}
+
+#About_Us fieldset div.flex-child div.doFade {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  color: black;
+}
+
+#About_Us fieldset div.flex-child div.doFade h5 {
+  padding: 0 5px;
+  margin: 0;
+  font-size: 1em;
+  font-weight: bolder;
+  min-height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#About_Us fieldset div.flex-child div.doFade a {
+  margin: 0 0 10px 30px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+#About_Us fieldset div.flex-child div.doFade P {
+  display: none;
+}
+
+#About_Us fieldset div.flex-child div.doFade button {
+  color: white;
+}
+
+#Feedbacks {
+  width: 50%;
+  color: white;
+  /* Remove Arrows/Spinners of input number*/
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+
+#Feedbacks h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+#Feedbacks label {
+  font-size: 20px;
+}
+
+#Feedbacks textarea {
+  resize: none;
+}
+
+#Feedbacks button[type="submit"] {
+  display: block;
+  width: 30%;
+  margin: 50px auto 0px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+#Feedbacks button[type="submit"]:hover {
+  background-color: #00e932;
+  -webkit-box-shadow: 0 0 20px #3cfa55;
+          box-shadow: 0 0 20px #3cfa55;
+}
+
+#Feedbacks .valid {
+  border: 2px solid #3cfa55;
+  -webkit-box-shadow: 0 0 10px #3cfa55;
+          box-shadow: 0 0 10px #3cfa55;
+}
+
+#Feedbacks .invalid {
+  border: 2px solid #f71414;
+  -webkit-box-shadow: 0 0 10px #f71414;
+          box-shadow: 0 0 10px #f71414;
+}
+
+#Feedbacks input::-webkit-outer-spin-button,
+#Feedbacks input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#Feedbacks input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.modalChe {
+  height: 100vh;
+  color: black;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+.modalChe h4 {
+  background-color: black;
+  color: white;
+  font-style: italic;
+  border: 2px solid;
+  padding: 3px;
+  border-radius: 20%;
+}
+
+.modalChe .modal-dialog {
+  margin-top: 5%;
+}
+/*# sourceMappingURL=tienStyle.css.map */
